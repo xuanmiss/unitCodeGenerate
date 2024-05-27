@@ -8,15 +8,16 @@
     <name>UnitCodeGenerate</name>
 
     <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="xuanmine@gmail.com" url="https://www.yourcompany.com">MissOrg</vendor>
 
     <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+    <description>
+        <![CDATA[
+      Adds a <i>Greeting</i> menu group anchored last in the <b>Main Menu</b>
+    ]]>
+    </description>
 
     <!-- Product and plugin compatibility requirements.
          Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
@@ -27,4 +28,22 @@
     <extensions defaultExtensionNs="com.intellij">
 
     </extensions>
+
+    <actions>
+        <group id="MyPlugin.GreetingMenu" text="Greeting" description="Greeting menu">
+            <add-to-group group-id="MainMenu" anchor="last"/>
+            <action id="MyPlugin.Hello" class="com.miss.unitcodegenerate.HelloAction" text="Hello" description="Says hello"/>
+        </group>
+        <action id="GenerateUnitTest" class="com.miss.unitcodegenerate.GenerateUnitTestAction" text="miss-生成单元测试">
+            <add-to-group
+                    group-id="ProjectViewPopupMenu"
+                    anchor="last"/>
+            <add-to-group
+                    group-id="ChangesViewPopupMenu"
+                    anchor="last"/>
+            <add-to-group
+                    group-id="EditorPopupMenu"
+                    anchor="last"/>
+        </action>
+    </actions>
 </idea-plugin>

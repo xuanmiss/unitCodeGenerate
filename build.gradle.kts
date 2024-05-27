@@ -11,6 +11,10 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+    implementation("com.google.code.gson:gson:2.10")
+}
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
@@ -21,6 +25,9 @@ intellij {
 }
 
 tasks {
+    buildSearchableOptions {
+        enabled = false
+    }
     // Set the JVM compatibility versions
     withType<JavaCompile> {
         sourceCompatibility = "17"
